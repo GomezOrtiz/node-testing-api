@@ -5,7 +5,10 @@ const coasterController = require('../../../controllers/coaster/coaster.controll
 
 const router = express.Router();
 
-router.route('/').get(coasterController.getAllCoasters).post(coasterController.createCoaster);
+router
+  .route('/')
+  .get(coasterController.getAllCoasters)
+  .post(validate(coasterValidation.createCoaster), coasterController.createCoaster);
 router.get('/name/:name', validate(coasterValidation.getCoasterByName), coasterController.getCoasterByName);
 router
   .route('/:id')

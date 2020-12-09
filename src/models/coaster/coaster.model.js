@@ -51,6 +51,7 @@ const coasterSchema = mongoose.Schema(
     year: {
       type: Number,
       required: true,
+      max: new Date().getFullYear(),
     },
   },
   {
